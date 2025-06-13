@@ -9,19 +9,19 @@ export const services: Service[] = [
 	{
 		image: "/img/hoersysteme-logo.webp",
 		title: "Hörgeräte",
-		description: "Wir bieten eine breite Palette an Hörgeräten von den bekanntesten Marken wie Phonak, Siemens, Oticon und weiteren an. Wir beraten Sie gerne und finden das passende Hörgerät für Sie.",
+		description: "Hörgeräte verbessern das Sprachverstehen und steigern Ihre Lebensqualität. Wir beraten Sie persönlich und passen individuell an - diskret, modern und auf dem neusten Stand der Technik.",
 		url: "/Leistungen"
 	},
 	{
 		image: "/img/tinnitus-logo.webp",
 		title: "Tinnitus",
-		description: "Wir bieten eine breite Palette an Hörgeräten von den bekanntesten Marken wie Phonak, Siemens, Oticon und weiteren an. Wir beraten Sie gerne und finden das passende Hörgerät für Sie.",
+		description: "törende Ohrgeräusche wie Pfeifen oder Rauschen? Wir unterstützen Sie mit Beratung und passenden Lösungen, um den Tinnitus spürbar zu lindern und den Alltag wieder angenehmer zu gestalten.",
 		url: "/Leistungen"
 	},
 	{
 		image: "/img/gehoerschutz-logo.webp",
 		title: "Gehörschutz",
-		description: "Wir bieten eine breite Palette an Hörgeräten von den bekanntesten Marken wie Phonak, Siemens, Oticon und weiteren an. Wir beraten Sie gerne und finden das passende Hörgerät für Sie.",
+		description: "ärm belastet das Gehör dauerhaft. Wir bieten individuell angepassten Gehörschutz – ideal für Beruf, Freizeit oder Schlaf. Leicht, komfortabel und genau auf Ihre Bedürfnisse abgestimmt.",
 		url: "/Leistungen"
 	},
 ];
