@@ -171,7 +171,6 @@ const Contact: React.FC = () => {
 				<h1 className="h1-bold site-title">Kontakt</h1>
 			</div>
 			<div className="contact-form container">
-				<h2>Kontaktieren Sie uns</h2>
 				<form onSubmit={handleSubmit}>
 					<div style={{ display: 'none' }}>
 						<input
