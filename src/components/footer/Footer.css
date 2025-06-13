@@ -1,0 +1,138 @@
+footer {
+	background: var(--color-blue-light);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 12rem;
+	padding-block: 2rem;
+	z-index: 10;
+}
+
+.footer-content {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 2rem;
+	padding: 2rem;
+	cursor: default !important;
+}
+
+footer h3 {
+	color: var(--color-blue-dark);
+	font-size: 1.6rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	border-bottom: 2px solid var(--color-orange-light);
+}
+
+footer .col {
+	line-height: 2.5;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	height: auto;
+	padding: 1rem;
+	border-radius: 20px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.02);
+}
+
+footer .col p {
+	background-color: transparent !important;
+	color: var(--color-white);
+	font-weight: 600;
+	margin-block: 0;
+	padding: 0 !important;
+	line-height: 2.5;
+	font-size: clamp(0.5rem, 3vw, 1.2rem);
+	font-weight: normal;
+}
+
+footer .footer-legal {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	border-top: 2px solid var(--color-white);
+	padding-top: 2rem;
+}
+
+footer .footer-legal p {
+	margin-block: 0;
+	font-size: clamp(0.5rem, 3vw, 1.2rem);
+	font-weight: normal;
+}
+
+.footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.footer-links a,
+.footer-links p {
+	display: inline-block;
+	padding: 0;
+	color: var(--color-white);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+	color: var(--color-orange-light);
+}
+
+@media (max-width: 768px) {
+	.footer-legal {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer-links {
+		justify-content: center;
+	}
+}
+
+.social-icons {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1rem;
+	margin-top: 0.5rem;
+}
+
+.social-icons a {
+	display: inline-block;
+	transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+	transform: scale(1.1);
+}
+
+.social-icons img {
+	width: 32px;
+	height: 32px;
+}
+
+.cookie-revoke-static {
+	background: var(--color-white, #fff);
+	color: var(--color-primary, #2a2a2a);
+	border: 1px dashed var(--color-primary, #2a2a2a);
+	border-radius: 0.5rem;
+	padding: 0.4rem 1.2rem;
+	font-size: 1rem;
+	font-weight: 500;
+	margin-left: 1.2rem;
+	cursor: pointer;
+	transition: background 0.2s, color 0.2s;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.cookie-revoke-static:hover {
+	background: var(--color-orange-light, #ffb74d);
+	color: var(--color-white, #fff);
+}

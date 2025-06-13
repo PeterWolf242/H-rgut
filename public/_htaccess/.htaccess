@@ -1,0 +1,33 @@
+RewriteEngine On
+RewriteBase /
+
+<IfModule mod_rewrite.c>
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set Content-Security-Policy "default-src 'self';"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  <FilesMatch "\\.(js|css|html|xml)$">
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
+<FilesMatch "\.(js)$">
+    AddType application/javascript .js
+</FilesMatch>
+
+<FilesMatch "\.(css)$">
+    AddType text/css .css
+</FilesMatch>

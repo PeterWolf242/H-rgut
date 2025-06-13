@@ -1,0 +1,85 @@
+.hersteller-slider-full-container {
+	width: 100vw;
+	/*max-width: 90vw;*/
+	margin: 20rem auto;
+	overflow: hidden;
+	position: relative;
+	padding-block: 2rem 4rem;
+	border-top: 1px solid var(--color-orange-light);
+	border-bottom: 1px solid var(--color-orange-light);
+}
+
+.hersteller-slider-flex {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6rem; /* Abstand zwischen Logos */
+	transition: transform 0.5s ease;
+}
+
+.hersteller-slider-img-container {
+	flex: 0 0 220px;
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 1.5s ease, opacity 1.5s ease;
+	opacity: 0.6;
+	transform: scale(0.9);
+}
+
+.hersteller-slider-img-container.active {
+	opacity: 1;
+	transform: scale(1.2);
+	z-index: 2;
+}
+
+.hersteller-slider-img-container img {
+	max-width: 300px;
+	max-height: 280px;
+	object-fit: contain;
+	display: block;
+	border-radius: 8px;
+	background: var(--color-white, #ffffff);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+	transition: transform 1s ease, box-shadow 1s ease;
+	padding: 20px;
+}
+
+.hersteller-slider-buttons {
+	margin-top: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	gap: 2rem;
+}
+
+.hersteller-slider-buttons button {
+	width: 3rem;
+	border: none;
+	background: none;
+	cursor: pointer;
+	text-transform: uppercase;
+	transition: fill 0.5s;
+}
+
+.hersteller-slider-buttons button:hover {
+	fill: var(--color-orange-dark);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+	.hersteller-slider-full-container {
+		max-width: 95vw;
+	}
+	.hersteller-slider-flex {
+		gap: 2rem;
+	}
+	.hersteller-slider-img-container {
+		transform: scale(0.8);
+	}
+	.hersteller-slider-img-container.active {
+		transform: scale(1.05);
+	}
+}
