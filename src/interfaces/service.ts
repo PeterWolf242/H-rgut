@@ -21,7 +21,7 @@ export const services: Service[] = [
 	{
 		image: "/img/gehoerschutz-logo.webp",
 		title: "Gehörschutz",
-		description: "ärm belastet das Gehör dauerhaft. Wir bieten individuell angepassten Gehörschutz – ideal für Beruf, Freizeit oder Schlaf. Leicht, komfortabel und genau auf Ihre Bedürfnisse abgestimmt.",
+		description: "Lärm belastet das Gehör dauerhaft. Wir bieten individuell angepassten Gehörschutz – ideal für Beruf, Freizeit oder Schlaf. Leicht, komfortabel und genau auf Ihre Bedürfnisse abgestimmt.",
 		url: "/Leistungen"
 	},
 ];
