@@ -245,6 +245,7 @@ main {
 }
 
 .legal-notice {
+	padding-top: 10rem;
 	text-wrap: balance;
 }
 

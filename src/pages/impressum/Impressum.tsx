@@ -9,7 +9,7 @@ export default function Impressum() {
 			</Helmet>
 			<main>
 				<div className="container legal-notice">
-					<h1 className="h1-bold site-title">Datenschutz&shy;erkl&auml;rung</h1>
+					<h1 className="h1-bold site-title">Impressum</h1>
 
 					<p>H&ouml;ren und Sehen Junkersdorf &amp; Reifschneider GbR<br />
 						H&uuml;fflischer Hof 13<br />
