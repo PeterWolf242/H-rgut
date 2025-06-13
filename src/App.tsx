@@ -12,7 +12,6 @@ import Contact from "./pages/contact/Contact"
 import Filialen from "./pages/filialen/Filialen"
 import Impressum from "./pages/impressum/Impressum"
 import Datenschutz from "./pages/datenschutz/Datenschutz"
-import CookieBanner from "./components/CookieBanner"
 
 function App() {
 	const router = createBrowserRouter(createRoutesFromElements(
