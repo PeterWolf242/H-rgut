@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 // Konfiguration
 const HCAPTCHA_SITE_KEY = import.meta.env.VITE_HCAPTCHA_SITE_KEY;
 const RECIPIENT_EMAIL = import.meta.env.VITE_RECIPIENT_EMAIL;
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 if (!HCAPTCHA_SITE_KEY) {
 	console.error('hCaptcha Site Key fehlt. Bitte fügen Sie VITE_HCAPTCHA_SITE_KEY in Ihre .env-Datei ein.');
@@ -114,7 +113,7 @@ const Contact: React.FC = () => {
 		setIsSubmitting(true);
 
 		try {
-			const response = await fetch(`${API_URL}/api/send-email`, {
+			const response = await fetch('/api/send-email', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -123,7 +122,8 @@ const Contact: React.FC = () => {
 					name: formData.name,
 					email: formData.email,
 					message: formData.message,
-					recipient: RECIPIENT_EMAIL
+					recipient: RECIPIENT_EMAIL,
+					captchaToken: captchaToken
 				}),
 			});
 

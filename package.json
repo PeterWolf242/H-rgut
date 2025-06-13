@@ -8,8 +8,7 @@
     "build": "tsc && vite build",
     "postbuild": "npx copyfiles public/_htaccess dist",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "node server/index.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.12.0",
