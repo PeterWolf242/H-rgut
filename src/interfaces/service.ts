@@ -15,7 +15,7 @@ export const services: Service[] = [
 	{
 		image: "/img/tinnitus-logo.webp",
 		title: "Tinnitus",
-		description: "Törende Ohrgeräusche wie Pfeifen oder Rauschen? Wir unterstützen Sie mit Beratung und passenden Lösungen, um den Tinnitus spürbar zu lindern und den Alltag wieder angenehmer zu gestalten.",
+		description: "Störende Ohrgeräusche wie Pfeifen oder Rauschen? Wir unterstützen Sie mit Beratung und passenden Lösungen, um den Tinnitus spürbar zu lindern und den Alltag wieder angenehmer zu gestalten.",
 		url: "/Leistungen"
 	},
 	{
