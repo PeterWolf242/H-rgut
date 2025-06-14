@@ -7,7 +7,7 @@ export interface Service {
 
 export const services: Service[] = [
 	{
-		image: "/img/hoersysteme-logo.webp",
+		image: "/img/hoergeraete-logo.webp",
 		title: "Hörgeräte",
 		description: "Hörgeräte verbessern das Sprachverstehen und steigern Ihre Lebensqualität. Wir beraten Sie persönlich und passen individuell an - diskret, modern und auf dem neusten Stand der Technik.",
 		url: "/Leistungen"
@@ -15,7 +15,7 @@ export const services: Service[] = [
 	{
 		image: "/img/tinnitus-logo.webp",
 		title: "Tinnitus",
-		description: "Törende Ohrgeräusche wie Pfeifen oder Rauschen? Wir unterstützen Sie mit Beratung und passenden Lösungen, um den Tinnitus spürbar zu lindern und den Alltag wieder angenehmer zu gestalten.",
+		description: "Störende Ohrgeräusche wie Pfeifen oder Rauschen? Wir unterstützen Sie mit Beratung und passenden Lösungen, um den Tinnitus spürbar zu lindern und den Alltag wieder angenehmer zu gestalten.",
 		url: "/Leistungen"
 	},
 	{
