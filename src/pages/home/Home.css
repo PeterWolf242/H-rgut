@@ -1,9 +1,30 @@
 .top-section {
-	width: 100vw;
-	background: linear-gradient(transparent, var(--color-black) 90%),
-		url("../../img/aussenansicht-hoergut-buehl.webp") no-repeat center center;
-	background-size: cover;
-	padding: 20rem 0 10rem 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.top-section img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.top-section::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(transparent, var(--color-black) 90%);
+	z-index: 1;
+}
+
+.hero-content {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
 }
 
 .top-section h1,
@@ -17,6 +38,10 @@
 	line-height: 1.2;
 	margin-bottom: 2rem;
 	text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.top-section h1 span {
+	display: inline-block;
 }
 
 .top-section h1,
@@ -66,6 +91,10 @@
 	line-height: 1.2;
 }
 
+.hero-content .button-link:hover {
+	color: var(--color-white);
+}
+
 .welcome-picture-box {
 	flex: 1;
 	max-width: 600px;
@@ -107,26 +136,33 @@
 }
 
 .service-card {
-	background: var(--color-blue-dark);
-	padding: 4rem 2rem;
+	background: var(--color-blue-light);
+	padding: 60px 30px;
 	border-radius: 1rem;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+	box-shadow: var(--shadow-1);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	text-align: center;
 }
 
-.service-card img {
-	width: 120px;
-	aspect-ratio: 1/1;
-	object-fit: contain;
+.service-card-image {
+	width: 140px;
+	height: 140px;
 	margin-bottom: 2rem;
+	filter: drop-shadow(0 0 6px rgba(223, 216, 216));
+}
+
+.service-card-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .service-card h3 {
-	color: var(--color-blue-light);
+	color: var(--color-blue-dark-2);
 	margin-bottom: 2rem;
 	font-size: clamp(1.5rem, 4vw, 2.5rem);
 	font-weight: 600;
@@ -139,7 +175,7 @@
 }
 
 .service-card .button-link {
-	margin-top: 2rem;
+	margin-top: auto;
 }
 
 .service-card .button-link:hover {
@@ -153,7 +189,8 @@
 
 .advice-bg {
 	width: 80%;
-	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+	background:
+		linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
 		url("../../img/innanansicht1-hoergut-buehl.webp") no-repeat center center;
 	background-size: cover;
 	padding: 15rem 0;
@@ -185,7 +222,10 @@
 	align-items: center;
 	justify-content: center;
 	border: 4px solid var(--color-orange-light);
+	color: var(--color-white);
 	padding: 1rem 2rem;
+	font-size: clamp(1rem, 2vw, 1.5rem);
+	letter-spacing: 0.2em;
 }
 
 .advice .button-link a {

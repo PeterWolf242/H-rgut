@@ -19,8 +19,8 @@ footer {
 }
 
 footer h3 {
-	color: var(--color-blue-dark);
-	font-size: 1.6rem;
+	color: var(--color-blue-dark-2);
+	font-size: clamp(1.2rem, 2vw, 1.6rem);
 	font-weight: 600;
 	text-transform: uppercase;
 	margin-bottom: 1rem;
@@ -32,10 +32,6 @@ footer .col {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-	height: auto;
-	padding: 1rem;
-	border-radius: 20px;
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.02);
 }
 
 footer .col p {
@@ -94,6 +90,11 @@ footer .footer-legal p {
 	.footer-links {
 		justify-content: center;
 	}
+
+	.footer-content {
+		grid-template-columns: 1fr;
+		padding: 2rem 1rem;
+	}
 }
 
 .social-icons {
@@ -127,7 +128,9 @@ footer .footer-legal p {
 	font-weight: 500;
 	margin-left: 1.2rem;
 	cursor: pointer;
-	transition: background 0.2s, color 0.2s;
+	transition:
+		background 0.2s,
+		color 0.2s;
 	display: inline-block;
 	vertical-align: middle;
 }

@@ -1,3 +1,7 @@
+h1.site-title {
+	margin-left: 1rem;
+}
+
 .gallery-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -8,7 +12,7 @@
 .gallery-item {
 	padding: 20px 20px 0 20px;
 	border-radius: 20px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-1);
 	transition: transform 0.3s ease;
 }
 
@@ -18,7 +22,7 @@
 	height: 300px;
 	border-radius: 20px;
 	overflow: hidden;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-1);
 }
 
 .gallery-image img {
@@ -166,7 +170,7 @@
 	justify-content: center;
 	z-index: 10;
 	transition: background 0.2s;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--shadow-1);
 	outline: none;
 }
 .custom-lightbox-prev {
@@ -211,7 +215,7 @@
 	font-weight: 600;
 	z-index: 1000;
 	letter-spacing: 0.1em;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--shadow-1);
 	user-select: none;
 }
 

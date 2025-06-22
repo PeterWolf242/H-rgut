@@ -12,12 +12,16 @@ header {
 	margin-bottom: calc(250px + 2rem);
 	transition: all var(--transition-speed) ease;
 	background-color: var(--color-white);
+	border-bottom: 1px solid var(--color-orange-dark);
 }
 
 header.with-shadow {
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 8px 40px rgba(0, 0, 0, 0.05),
+	box-shadow:
+		0 4px 20px rgba(0, 0, 0, 0.25),
+		0 8px 40px rgba(0, 0, 0, 0.05),
 		0 16px 130px rgba(0, 0, 0, 0.5);
 	background-color: var(--color-white);
+	border-bottom: 2px solid transparent;
 }
 
 :root {
@@ -40,7 +44,7 @@ header.with-shadow {
 	height: 24px;
 	margin-left: auto;
 	position: absolute;
-	right: 1rem;
+	right: 2rem;
 	z-index: 1001;
 	padding: 0;
 }
@@ -95,7 +99,8 @@ header.with-shadow {
 	height: 100vh;
 	background: white;
 	padding: 80px 2rem 2rem;
-	transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+	transition:
+		transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
 		opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 	z-index: 999;
@@ -119,7 +124,8 @@ header.with-shadow {
 	gap: 1.5rem;
 	opacity: 0;
 	transform: translateX(-20px);
-	transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s,
+	transition:
+		opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s,
 		transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 }
 
@@ -194,6 +200,7 @@ header.with-shadow {
 
 .dropdown {
 	position: relative;
+	transition: none;
 }
 
 .dropdown-toggle {
@@ -293,7 +300,8 @@ header.with-shadow {
 	background: rgba(0, 0, 0, 0.9);
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+	transition:
+		opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
 		visibility 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 	z-index: 998;
 }

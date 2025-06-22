@@ -27,7 +27,7 @@ export const filialen: Filiale[] = [
 	{
 		id: "Rheinau",
 		name: "Rheinau",
-		image: "img/hoergut-rheinau-bischofsheim-aussenansicht-2.webp",
+		image: "img/hoergut-rheinau-bischofsheim-aussenansicht.webp",
 		mapImage: "img/open-street-map-hoergut-rheinau.webp",
 		strasse: "Renchener Str. 1a",
 		plz: "77866",

@@ -1,3 +1,8 @@
+main h1.site-title {
+	margin-top: 10rem;
+	margin-left: 0;
+}
+
 .h2-bold {
 	color: var(--color-orange-light);
 	border-bottom: 2px solid var(--color-blue-light);
@@ -19,7 +24,7 @@
 	border-radius: 1rem;
 	padding: 1rem 0 6rem 0;
 	overflow: hidden;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-1);
 	transition: transform 0.3s ease;
 	position: relative;
 }

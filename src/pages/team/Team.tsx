@@ -51,20 +51,26 @@ export default function Team() {
 
 		return (
 			<article key={member.id} className="team-card">
-				<div className="team-img-wrapper">
-					<img
-						className={`team-img ${member.class || ''}`}
-						src={imageError[member.id] ? member.image.replace('.png', '-hoergut-buehl.png') : member.image}
-						alt={member.name || 'Teammitglied'}
-						title={member.name || 'Teammitglied'}
-						aria-label={member.name || 'Teammitglied'}
-						loading="lazy"
-						onError={() => handleImageError(member.id)}
-					/>
+				<div className="team-card-header">
+					<div className="team-img-wrapper-container">
+						<div className="team-img-wrapper">
+							<img
+								className={`team-img ${member.class || ''}`}
+								src={imageError[member.id] ? member.image.replace('.png', '-hoergut-buehl.png') : member.image}
+								alt={member.name || 'Teammitglied'}
+								title={member.name || 'Teammitglied'}
+								aria-label={member.name || 'Teammitglied'}
+								loading="lazy"
+								onError={() => handleImageError(member.id)}
+							/>
+						</div>
+					</div>
+					<div className="team-card-header-text">
+						<h2>{member.name || 'Unbekannt'}</h2>
+						<h3>{member.role || 'Keine Rolle angegeben'}</h3>
+					</div>
 				</div>
 				<article className="team-content">
-					<h2>{member.name || 'Unbekannt'}</h2>
-					<h3>{member.role || 'Keine Rolle angegeben'}</h3>
 					<p>{member.description || 'Keine Beschreibung verfügbar'}</p>
 				</article>
 			</article>
@@ -87,9 +93,7 @@ export default function Team() {
 			<Helmet>
 				<link rel="canonical" href="https://hoergut-buehlot.de/Team" />
 			</Helmet>
-			<div className="container">
-				<h1 className="h1-bold site-title">Team</h1>
-			</div>
+			<h1 className="h1-bold site-title">Team</h1>
 
 			{/* Desktop Version */}
 			<div className="about-team-desktop">

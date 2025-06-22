@@ -1,4 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import { obfuscateEmail } from '../../utils/emailObfuscation';
+
+const EMAIL_PARTS = obfuscateEmail("info@hoergut-buehlot.de");
 
 export default function Datenschutz() {
 	return (
@@ -25,7 +28,9 @@ export default function Datenschutz() {
 						77815 B&uuml;hl</p>
 
 					<p>Telefon: 07223-8010784<br />
-						E-Mail: info@hoergut-buehlot.de</p>
+						E-Mail: <span id="email-parts" data-parts={JSON.stringify(EMAIL_PARTS)}>
+							{EMAIL_PARTS[0]}@{EMAIL_PARTS[1]}.{EMAIL_PARTS[2]}
+						</span></p>
 					<p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o. &Auml;.) entscheidet.</p>
 
 					<h3>Speicherdauer</h3> <p>Soweit innerhalb dieser Datenschutzerkl&auml;rung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck f&uuml;r die Datenverarbeitung entf&auml;llt. Wenn Sie ein berechtigtes L&ouml;schersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gel&ouml;scht, sofern wir keine anderen rechtlich zul&auml;ssigen Gr&uuml;nde f&uuml;r die Speicherung Ihrer personenbezogenen Daten haben (z.&nbsp;B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die L&ouml;schung nach Fortfall dieser Gr&uuml;nde.</p>

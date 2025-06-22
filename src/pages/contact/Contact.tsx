@@ -2,16 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import './Contact.css';
 import { Helmet } from "react-helmet-async";
+import { obfuscateEmail, deobfuscateEmail } from '../../utils/emailObfuscation';
 
 // Konfiguration
 const HCAPTCHA_SITE_KEY = import.meta.env.VITE_HCAPTCHA_SITE_KEY;
-const RECIPIENT_EMAIL = import.meta.env.VITE_RECIPIENT_EMAIL;
+const RECIPIENT_EMAIL_PARTS = obfuscateEmail(import.meta.env.VITE_RECIPIENT_EMAIL || '');
 
 if (!HCAPTCHA_SITE_KEY) {
 	console.error('hCaptcha Site Key fehlt. Bitte fügen Sie VITE_HCAPTCHA_SITE_KEY in Ihre .env-Datei ein.');
 }
 
-if (!RECIPIENT_EMAIL) {
+if (!RECIPIENT_EMAIL_PARTS[0]) {
 	console.error('Empfänger-E-Mail fehlt. Bitte fügen Sie VITE_RECIPIENT_EMAIL in Ihre .env-Datei ein.');
 }
 
@@ -122,7 +123,7 @@ const Contact: React.FC = () => {
 					name: formData.name,
 					email: formData.email,
 					message: formData.message,
-					recipient: RECIPIENT_EMAIL,
+					recipient: deobfuscateEmail(RECIPIENT_EMAIL_PARTS),
 					captchaToken: captchaToken
 				}),
 			});
@@ -245,7 +246,7 @@ const Contact: React.FC = () => {
 								sitekey={HCAPTCHA_SITE_KEY}
 								onVerify={(token) => setCaptchaToken(token)}
 								theme="light"
-								size="normal"
+								size="compact"
 							/>
 						) : (
 							<div className="error-message">

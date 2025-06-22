@@ -1,13 +1,15 @@
 .contact-form {
-	margin: 8rem auto;
-	padding: 2rem 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
 	background: var(--color-white);
-	border-radius: 16px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
 	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
 }
 
 .form-group label {
@@ -21,7 +23,7 @@
 	width: 100%;
 	padding: 0.75rem;
 	border: 1px solid #ddd;
-	border-radius: 8px;
+	border-radius: 1rem;
 	font-size: 1rem;
 	transition: border-color 0.3s ease;
 }
@@ -46,7 +48,10 @@
 
 .checkbox-group input[type="checkbox"] {
 	width: auto;
-	margin-top: 0.25rem;
+	font-size: 2rem;
+	transform: scale(1.5);
+	transform-origin: top left;
+	margin-right: 0.5em;
 }
 
 .checkbox-group label {
@@ -84,7 +89,7 @@
 .submit-button:hover {
 	background: var(--color-orange-dark);
 	transform: translateY(-2px);
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow-1);
 }
 
 .submit-button:active {
@@ -102,4 +107,10 @@
 	color: #28a745;
 	font-size: 0.875rem;
 	margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+	.contact-form {
+		width: calc(100% - 2rem);
+	}
 }

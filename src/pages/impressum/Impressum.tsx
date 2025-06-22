@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import { obfuscateEmail } from '../../utils/emailObfuscation';
 
+const EMAIL_PARTS = obfuscateEmail("info@hoergut-buehlot.de");
 
 export default function Impressum() {
 	return (
@@ -21,7 +23,9 @@ export default function Impressum() {
 
 					<h2>Kontakt</h2>
 					<p>Telefon: 07223-8010784<br />
-						E-Mail: info@hoergut-buehlot.de</p>
+						E-Mail: <span id="email-parts" data-parts={JSON.stringify(EMAIL_PARTS)}>
+							{EMAIL_PARTS[0]}@{EMAIL_PARTS[1]}.{EMAIL_PARTS[2]}
+						</span></p>
 
 					<h2>Umsatzsteuer-ID</h2>
 					<p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br />
