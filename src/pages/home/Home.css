@@ -19,12 +19,16 @@
 
 .hero-content {
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 66%;
+	transform: translateY(-66%);
 	left: 0;
 	right: 0;
 	bottom: 0;
 	z-index: 2;
+}
+
+.hero-content h2 {
+	margin-top: 12rem;
 }
 
 .top-section h1,
@@ -32,11 +36,15 @@
 	color: var(--color-white);
 }
 
+.top-section h2 {
+	margin-bottom: 4rem;
+}
+
 .top-section h1 {
 	font-size: clamp(2rem, 5vw, 4rem);
 	font-weight: 700;
 	line-height: 1.2;
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 	text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
@@ -63,8 +71,9 @@
 	font-weight: bold;
 }
 
-.top-section .button-link {
-	margin-top: 2rem;
+.top-section .hero-content .button-link {
+	margin-top: -12rem;
+	transform: translateY(-2rem) !important;
 }
 
 .welcome {
