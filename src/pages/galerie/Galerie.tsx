@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import { aktuelles } from '../../interfaces/aktuelles';
+import { aktuellesNews } from '../../interfaces/aktuellesNew';
 import galerieBilder from '../../assets/galerieBilder.json';
 import './Galerie.css';
 import { Helmet } from "react-helmet-async";
 
 export default function Galerie() {
-	if (!Array.isArray(aktuelles)) {
+	// Kombiniere beide Arrays
+	const allAlbums = [...(Array.isArray(aktuelles) ? aktuelles : []), ...(Array.isArray(aktuellesNews) ? aktuellesNews : [])];
+
+	if (!Array.isArray(allAlbums) || allAlbums.length === 0) {
 		return (
 			<main>
 				<div className="container">
@@ -15,7 +19,7 @@ export default function Galerie() {
 		);
 	}
 
-	const getFirstAlbumImage = (album: typeof aktuelles[0]) => {
+	const getFirstAlbumImage = (album: typeof allAlbums[0]) => {
 		if (!album || !album.url) return album?.image || '';
 
 		// Hole den Ordnernamen aus der URL
@@ -39,7 +43,7 @@ export default function Galerie() {
 			<div className="container">
 				<h1 className="h1-bold site-title">Galerie</h1>
 				<section className="gallery-grid">
-					{aktuelles.map((item) => {
+					{allAlbums.map((item) => {
 						if (!item || !item.url) return null;
 
 						const uniqueKey = item.url.split('/').pop() || item.title;

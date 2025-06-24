@@ -111,9 +111,9 @@ h1.site-title {
 	font-size: clamp(1.8rem, 3vw, 4rem);
 	letter-spacing: 1rem;
 	color: var(--color-orange-light);
-	margin: 8rem 0 12rem 2rem;
+	margin: 8rem 0 12rem 0rem;
 	padding: 0 2rem 0 0;
-	font-weight: 400;
+	font-weight: 500;
 	position: relative;
 }
 
@@ -145,7 +145,7 @@ main {
 
 	.container,
 	.legal-notice {
-		width: calc(100% - 3rem);
+		width: calc(100% - 1rem);
 	}
 }
 

@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import type { Aktuelles } from '../../interfaces/aktuelles';
+import type { AktuellesNews } from '../../interfaces/aktuellesNew';
 import './Galerie.css';
 import galerieBilder from '../../assets/galerieBilder.json';
 
 interface AlbumGalerieProps {
-	album: Aktuelles;
+	album: Aktuelles | AktuellesNews;
 }
 
 export default function AlbumGalerie({ album }: AlbumGalerieProps) {

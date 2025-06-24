@@ -20,7 +20,7 @@ footer {
 
 footer h3 {
 	color: var(--color-blue-dark-2);
-	font-size: clamp(1.2rem, 2vw, 1.6rem);
+	font-size: clamp(1.3rem, 3vw, 1.6rem);
 	font-weight: 600;
 	text-transform: uppercase;
 	margin-bottom: 1rem;
@@ -41,7 +41,7 @@ footer .col p {
 	margin-block: 0;
 	padding: 0 !important;
 	line-height: 2.5;
-	font-size: clamp(0.5rem, 3vw, 1.2rem);
+	font-size: clamp(1rem, 3vw, 1.2rem);
 	font-weight: normal;
 }
 
@@ -58,7 +58,7 @@ footer .footer-legal {
 
 footer .footer-legal p {
 	margin-block: 0;
-	font-size: clamp(0.5rem, 3vw, 1.2rem);
+	font-size: clamp(1rem, 3vw, 1.2rem);
 	font-weight: normal;
 }
 

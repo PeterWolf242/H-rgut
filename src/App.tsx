@@ -8,12 +8,16 @@ import Aktuelles from "./pages/aktuelles/Aktuelles"
 import Galerie from "./pages/galerie/Galerie"
 import AlbumGalerie from "./pages/galerie/AlbumGalerie"
 import { aktuelles } from "./interfaces/aktuelles"
+import { aktuellesNews } from "./interfaces/aktuellesNew"
 import Contact from "./pages/contact/Contact"
 import Filialen from "./pages/filialen/Filialen"
 import Impressum from "./pages/impressum/Impressum"
 import Datenschutz from "./pages/datenschutz/Datenschutz"
 
 function App() {
+	// Kombiniere beide Arrays für die Routing-Konfiguration
+	const allAlbums = [...(Array.isArray(aktuelles) ? aktuelles : []), ...(Array.isArray(aktuellesNews) ? aktuellesNews : [])];
+
 	const router = createBrowserRouter(createRoutesFromElements(
 		<Route path="/" element={<Layout />}>
 			<Route index element={<Navigate to="/Startseite" replace />} />
@@ -24,7 +28,7 @@ function App() {
 			<Route path="Galerie" element={<Galerie />} />
 			<Route path="Filialen" element={<Filialen />} />
 			<Route path="Kontakt" element={<Contact />} />
-			{Array.isArray(aktuelles) && aktuelles.map((album) => (
+			{allAlbums.map((album) => (
 				<Route
 					key={album.url}
 					path={`Galerie/${album.url.split('/').pop()}`}

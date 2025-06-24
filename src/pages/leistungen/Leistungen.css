@@ -35,8 +35,8 @@
 
 @media (max-width: 992px) {
 	.bg-image-sortiment {
-		background: url("../img/phonak-audeo-paradise.webp") no-repeat center center /
-			cover;
+		background: url("../img/phonak-audeo-paradise.webp") no-repeat center
+			center / cover;
 		padding-bottom: 60rem;
 	}
 
