@@ -196,8 +196,8 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 24px;
-	height: 24px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	background-color: var(--color-black);
 	color: var(--color-white);
@@ -214,9 +214,18 @@ main {
 	transform: translateY(-2px);
 }
 
-.button-link:hover .arrow-icon-circle {
-	transform: translateX(2px);
+.button-link:hover > .arrow-icon-circle {
+	background-color: var(--color-orange-light);
+	color: var(--color-black);
+}
+
+.service-card .button-link:hover {
 	color: var(--color-white);
+}
+
+.service-card .button-link:hover > .arrow-icon {
+	transform: translateX(10px);
+	background-color: var(--color-orange-light) !important;
 }
 
 .legal-notice {

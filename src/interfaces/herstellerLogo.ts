@@ -16,6 +16,11 @@ export const images: HerstellerLogo[] = [
 		ariaLabel: 'Logo von Signia',
 	},
 	{
+		src: '/img/hersteller-logos/logo-hoerluchs.webp',
+		title: 'Hörluchs Logo',
+		ariaLabel: 'Logo von Hörluchs',
+	},
+	{
 		src: '/img/hersteller-logos/resound-seeklogo.webp',
 		title: 'ReSound Logo',
 		ariaLabel: 'Logo von ReSound',

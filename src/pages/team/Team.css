@@ -132,7 +132,7 @@ main h1.site-title {
 		var(--color-white) 40%,
 		var(--color-blue-light)
 	);
-	border-radius: 10% 10% 1rem 1rem;
+	border-radius: 1rem 10%;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
@@ -191,6 +191,7 @@ main h1.site-title {
 }
 
 .team-content {
+	margin-top: 2rem;
 	padding: 2rem;
 }
 
