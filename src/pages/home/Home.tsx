@@ -61,7 +61,7 @@ export default function Home() {
 			tl.fromTo(button,
 				{ opacity: 0, y: 30 },
 				{ opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-				"-=0.3" // Startet 0.3 Sekunden vor Ende der vorherigen Animation
+				"-=0.1" // Startet 0.3 Sekunden vor Ende der vorherigen Animation
 			);
 		}
 
