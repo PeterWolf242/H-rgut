@@ -107,6 +107,7 @@ header.with-shadow {
 	opacity: 0;
 	visibility: hidden;
 	transform: translateX(calc(100% + 5vw));
+	overflow-y: auto;
 }
 
 .main-nav.active {

@@ -3,7 +3,7 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import BackToTop from "../BackToTop";
 import ScrollToTop from "../ScrollToTop";
-import CookieBanner from "../CookieBanner";
+import CookieBanner from "../cookieBanner/CookieBanner";
 
 export default function Layout() {
 	return (
