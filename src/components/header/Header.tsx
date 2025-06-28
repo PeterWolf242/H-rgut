@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 export default function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isNewsOpen, setIsNewsOpen] = useState(false);
+	const [isLeistungenOpen, setIsLeistungenOpen] = useState(false);
 	const [hasShadow, setHasShadow] = useState(false);
 	const location = useLocation();
 
@@ -30,6 +31,11 @@ export default function Header() {
 	const toggleNews = (e: React.MouseEvent) => {
 		e.preventDefault();
 		setIsNewsOpen(!isNewsOpen);
+	};
+
+	const toggleLeistungen = (e: React.MouseEvent) => {
+		e.preventDefault();
+		setIsLeistungenOpen(!isLeistungenOpen);
 	};
 
 	const isActive = (path: string) => {
@@ -60,7 +66,27 @@ export default function Header() {
 			<nav className={`main-nav ${isMenuOpen ? 'active' : ''}`}>
 				<ul>
 					<li><Link to="/" className={isActive('/') ? 'nav-link-active' : ''} onClick={toggleMenu}>Startseite</Link></li>
-					<li><Link to="/Leistungen" className={isActive('/Leistungen') ? 'nav-link-active' : ''} onClick={toggleMenu}>Leistungen</Link></li>
+
+					<li className="dropdown">
+						<button
+							onClick={toggleLeistungen}
+							className="dropdown-toggle"
+							aria-expanded={isLeistungenOpen}
+							aria-controls="leistungen-dropdown"
+						>
+							Leistungen
+							<span className={`arrow ${isLeistungenOpen ? 'active' : ''}`}></span>
+						</button>
+						<ul
+							id="leistungen-dropdown"
+							className={`dropdown-menu ${isLeistungenOpen ? 'active' : ''}`}
+						>
+							<li><Link to="/Hoergeraete" className={isActive('/Hoergeraete') ? 'nav-link-active' : ''} onClick={toggleMenu}>Hörgeräte</Link></li>
+							<li><Link to="/Tinnitus" className={isActive('/Tinnitus') ? 'nav-link-active' : ''} onClick={toggleMenu}>Tinnitus</Link></li>
+							<li><Link to="/Gehoerschutz" className={isActive('/Gehoerschutz') ? 'nav-link-active' : ''} onClick={toggleMenu}>Gehörschutz</Link></li>
+						</ul>
+					</li>
+
 					<li><Link to="/Team" className={isActive('/Team') ? 'nav-link-active' : ''} onClick={toggleMenu}>Team</Link></li>
 
 					<li className="dropdown">
@@ -70,7 +96,7 @@ export default function Header() {
 							aria-expanded={isNewsOpen}
 							aria-controls="news-dropdown"
 						>
-							Aktuelles & Bilder
+							Aktuelles & Galerie
 							<span className={`arrow ${isNewsOpen ? 'active' : ''}`}></span>
 						</button>
 						<ul

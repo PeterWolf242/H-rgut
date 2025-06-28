@@ -3,7 +3,9 @@ import './index.css'
 import Layout from "./components/layout/Layout"
 import Home from "./pages/home/Home"
 import Team from "./pages/team/Team"
-import Leistungen from "./pages/leistungen/Leistungen"
+import Hoergeraete from "./pages/hoergeraete/Hoergeraete"
+import Tinnitus from "./pages/tinnitus/Tinnitus"
+import Gehoerschutz from "./pages/gehoerschutz/Gehoerschutz"
 import Aktuelles from "./pages/aktuelles/Aktuelles"
 import Galerie from "./pages/galerie/Galerie"
 import AlbumGalerie from "./pages/galerie/AlbumGalerie"
@@ -22,7 +24,9 @@ function App() {
 		<Route path="/" element={<Layout />}>
 			<Route index element={<Navigate to="/Startseite" replace />} />
 			<Route path="Startseite" element={<Home />} />
-			<Route path="Leistungen" element={<Leistungen />} />
+			<Route path="Hoergeraete" element={<Hoergeraete />} />
+			<Route path="Tinnitus" element={<Tinnitus />} />
+			<Route path="Gehoerschutz" element={<Gehoerschutz />} />
 			<Route path="Team" element={<Team />} key="team-route" />
 			<Route path="Aktuelles" element={<Aktuelles />} />
 			<Route path="Galerie" element={<Galerie />} />

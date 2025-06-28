@@ -1,4 +1,4 @@
-.bg-image-sortiment {
+.bg-image-tinnitus {
 	display: flex;
 	width: 100%;
 	position: relative;
@@ -7,15 +7,15 @@
 	justify-content: center;
 }
 
-.bg-image-sortiment img {
+.bg-image-tinnitus img {
 	width: 100%;
 }
 
-.bg-image-sortiment::before {
+.bg-image-tinnitus::before {
 	opacity: 0;
 }
 
-.bg-text-sortiment {
+.bg-text-tinnitus {
 	position: absolute;
 	top: 100%;
 	width: calc(100% - 4rem);
@@ -27,20 +27,38 @@
 	border-radius: 0 0 1rem 1rem;
 }
 
-.bg-text-sortiment p {
+.bg-text-tinnitus p {
 	margin-top: 2rem;
 	padding-inline: 0;
 	color: var(--color-white);
 }
 
+.tinnitus-content {
+	margin: 4rem 0;
+}
+
+.tinnitus-content h2 {
+	color: var(--color-blue);
+	margin-bottom: 2rem;
+}
+
+.tinnitus-content ul {
+	margin-top: 2rem;
+	padding-left: 2rem;
+}
+
+.tinnitus-content li {
+	margin-bottom: 1rem;
+	color: var(--color-blue);
+}
+
 @media (max-width: 992px) {
-	.bg-image-sortiment {
-		background: url("../img/phonak-audeo-paradise.webp") no-repeat center
-			center / cover;
+	.bg-image-tinnitus {
+		background: url("../img/tinnitus-logo.webp") no-repeat center center / cover;
 		padding-bottom: 60rem;
 	}
 
-	.bg-text-sortiment {
+	.bg-text-tinnitus {
 		width: calc(100% - 1rem);
 		padding: 2rem 1rem;
 	}

@@ -11,11 +11,28 @@ main h1.site-title {
 	font-weight: 400;
 }
 
+.container {
+	width: min(calc(100% - 1rem), 1400px);
+	margin: 0 auto;
+}
+
 .aktuelles-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 	gap: 2rem;
 	margin-top: 2rem;
+}
+
+.aktuelles-grid:nth-of-type(1) .aktuelles-card .slider {
+	height: 800px !important;
+}
+
+.aktuelles-grid:nth-of-type(1) .aktuelles-card .slider img {
+	height: 100%;
+}
+
+.h2-bold {
+	margin-top: 6rem;
 }
 
 .aktuelles-card {

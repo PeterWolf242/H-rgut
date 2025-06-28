@@ -116,7 +116,7 @@
 }
 
 .services {
-	width: 100vw;
+	width: 100vw !important;
 	background-color: var(--color-blue-light-2);
 	padding: 5rem 0;
 }
@@ -130,15 +130,14 @@
 
 .services .container {
 	width: 100%;
-	max-width: 1600px;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
 
 .services-grid {
-	width: 80%;
+	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 400px);
 	gap: 2rem;
 	margin: 0 auto;
 	justify-content: center;
@@ -328,23 +327,24 @@
 	}
 }
 
-
 /* ********************************************************** */
 /* HTML: <div class="loader"></div> */
 .loader {
-  width: fit-content;
-  font-size: 40px;
-  font-family: monospace;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #0000;
-  -webkit-text-stroke: 1px #000;
-  background: conic-gradient(#000 0 0) 0/0 100% no-repeat text;
-  animation: l11 2s steps(8,jump-none) infinite;
+	width: fit-content;
+	font-size: 40px;
+	font-family: monospace;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #0000;
+	-webkit-text-stroke: 1px #000;
+	background: conic-gradient(#000 0 0) 0/0 100% no-repeat text;
+	animation: l11 2s steps(8, jump-none) infinite;
 }
 .loader:before {
-  content: "Loading";
+	content: "Loading";
 }
 @keyframes l11 {
-  to {background-size: 100% 100%}
+	to {
+		background-size: 100% 100%;
+	}
 }
