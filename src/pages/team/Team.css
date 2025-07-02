@@ -52,7 +52,7 @@ main h1.site-title {
 }
 
 .about-team-desktop .team-image-block {
-	width: 50%;
+	width: 100%;
 	max-width: 600px;
 	position: absolute;
 	right: 0;
@@ -92,12 +92,12 @@ main h1.site-title {
 }
 
 .about-team-mobile .team-image-block {
-	width: 50%;
-	max-width: 600px;
+	width: 100%;
+	max-width: 350px;
 	position: absolute;
-	right: 0;
+	left: 50%;
 	top: 50%;
-	transform: translateY(-50%);
+	transform: translate(-50%, -50%);
 }
 
 .about-team-mobile .team-image-block img {
@@ -111,7 +111,7 @@ main h1.site-title {
 .about-team-mobile .team-text-block {
 	width: 100%;
 	padding: 0 80px;
-	margin-top: 400px;
+	margin-top: 500px;
 }
 
 /* Team Grid */
@@ -257,7 +257,7 @@ main h1.site-title {
 
 	.about-team-mobile .team-text-block {
 		padding: 0 20px;
-		margin-top: 150px;
+		margin-top: 200px;
 	}
 
 	.team-img-wrapper {

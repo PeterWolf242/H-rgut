@@ -98,7 +98,7 @@ export default function Team() {
 			{/* Desktop Version */}
 			<div className="about-team-desktop">
 				<div className="team-text-block">
-					<h2 className="h1-bold">Über uns</h2>
+					{/*<h2 className="h1-bold">Über uns</h2>*/}
 					<p>
 						Unser Anspruch besteht darin, durch Fachkompetenz sowie Innovationsgeist zu überzeugen und gleichermaßen immer aufgeschlossen für Neues zu bleiben.
 						Dabei begegnen wir den Anliegen unserer Kunden stets mit offenen Ohren und unserer Arbeit jeden Tag mit sehr viel Freude. <br /><br />
@@ -120,14 +120,14 @@ export default function Team() {
 			{/* Mobile Version */}
 			<div className="about-team-mobile">
 				<div className="team-header">
-					<h2 className="h1-bold">Über uns</h2>
+					{/*<h2 className="h1-bold">Über uns</h2>*/}
 					<div className="team-image-block">
 						<img
-							src="/img/team-hoergut-buehl.webp"
+							src="/img/team-hoergut-buehl-mobile.png"
 							alt="Team HörGut Bühl"
 							onError={(e) => {
 								const target = e.target as HTMLImageElement;
-								target.src = "/img/team-hoergut-buehl.png";
+								target.src = "/img/team-hoergut-buehl-mobile.png";
 							}}
 						/>
 					</div>

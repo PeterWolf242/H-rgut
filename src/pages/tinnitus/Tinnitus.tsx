@@ -1,56 +1,136 @@
 import "./Tinnitus.css";
 import { Helmet } from "react-helmet-async";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// GSAP Plugins registrieren
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Tinnitus() {
+	const firstSectionRef = useRef<HTMLElement>(null);
+	const secondSectionRef = useRef<HTMLElement>(null);
+
+	useEffect(() => {
+		// Erste Sektion: Bild von links, Text von rechts
+		if (firstSectionRef.current) {
+			const firstImage = firstSectionRef.current.querySelector('.hero-image');
+			const firstText = firstSectionRef.current.querySelector('.tinnitus-text');
+
+			// Initiale Position setzen
+			gsap.set(firstImage, { x: -100, opacity: 0 });
+			gsap.set(firstText, { x: 100, opacity: 0 });
+
+			// Animation für das Bild (von links nach rechts)
+			gsap.to(firstImage, {
+				x: 0,
+				opacity: 1,
+				duration: 1,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: firstSectionRef.current,
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleActions: "play none none reverse"
+				}
+			});
+
+			// Animation für den Text (von rechts nach links)
+			gsap.to(firstText, {
+				x: 0,
+				opacity: 1,
+				duration: 1,
+				delay: 0.3,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: firstSectionRef.current,
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleActions: "play none none reverse"
+				}
+			});
+		}
+
+		// Zweite Sektion: von unten nach oben
+		if (secondSectionRef.current) {
+			const secondText = secondSectionRef.current.querySelector('.tinnitus-text');
+
+			// Initiale Position setzen
+			gsap.set(secondText, { y: 100, opacity: 0 });
+
+			// Animation für die zweite Sektion (von unten nach oben)
+			gsap.to(secondText, {
+				y: 0,
+				opacity: 1,
+				duration: 1,
+				ease: "power2.out",
+				scrollTrigger: {
+					trigger: secondSectionRef.current,
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleActions: "play none none reverse"
+				}
+			});
+		}
+
+		// Cleanup
+		return () => {
+			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+		};
+	}, []);
+
 	return (
 		<main>
 			<Helmet>
 				<link rel="canonical" href="https://hoergut-buehlot.de/Tinnitus" />
 			</Helmet>
 			<div className="container">
-				<h1 className="h1-bold site-title">Tinnitus</h1>
+				<section className="hero-section">
+					<article className="hero-text">
+						<h1 className="site-title-alone">
+							Tinnitus
+						</h1>
+						<h2>
+							Hilfe durch moderne Hörsysteme
+						</h2>
+					</article>
+					<div className="hero-image">
+						<img src="../../img/tinnitus-logo_gross.png" alt="Tinnitus" />
+					</div>
+				</section>
+				<section ref={firstSectionRef} className="tinnitus-text-section">
+					<div className="hero-image">
+						<img src="../../img/Kreis-mit-sinuskurve-und-hoergeraet.png" alt="Tinnitus" />
+					</div>
+					<article className="tinnitus-text">
+						<p>
+							Viele Menschen leiden unter einem dauerhaften Ohrgeräusch, auch Tinnitus genannt.
+							Dieses kann sich als Pfeifen, Rauschen oder Brummen äußern und wirkt sich auf
+							Konzentration, Schlaf und Lebensqualität aus. Nicht immer lässt sich die Ursache
+							beseitigen – aber man kann lernen, mit dem Tinnitus zu leben. Moderne Hörgeräte mit
+							speziellen Tinnitusfunktionen können dabei helfen, das Ohrgeräusch in den Hintergrund
+							zu rücken.
+						</p>
+					</article>
+				</section>
+				<section ref={secondSectionRef} className="tinnitus-text-section">
+					<article className="tinnitus-text">
+						<p>
+							<article className="tinnitus-text rounded-box">
+								<p>
+									Bei einem chronischen Tinnitus reagiert das Gehirn empfindlich auf fehlende akustische
+									Reize – besonders bei gleichzeitigem Hörverlust. Hörsysteme können hier helfen, indem
+									sie nicht nur das Hören verbessern, sondern zusätzlich individuell anpassbare
+									Tinnitus-Rauschsignale erzeugen. Diese Tinnitus-Noiser überdecken das Ohrgeräusch
+									nicht, sondern bieten dem Gehirn eine alternative, neutrale Klangwelt zur Verarbeitung.
+									Unser Ziel: weniger Aufmerksamkeit auf den Tinnitus, mehr Fokus auf das Leben.
+								</p>
+							</article>
+						</p>
+					</article>
+				</section>
 			</div>
-			<section className="bg-container bg-image-tinnitus">
-				<img
-					src="../img/tinnitus-logo.webp"
-					alt="Tinnitus Behandlung HörGut Bühl"
-					title="Tinnitus Behandlung HörGut Bühl"
-					aria-label="Tinnitus Behandlung HörGut Bühl"
-					loading="lazy"
-					width="2000"
-					height="1250"
-				/>
-				<article className="bg-text bg-text-tinnitus">
-					<h2 className="h2-bold" style={{ color: "var(--color-orange-light)" }}>
-						Tinnitus - Sie sind nicht allein.
-					</h2>
-					<p className="h3" style={{ color: "var(--color-orange-light)" }}>
-						Professionelle Hilfe bei Ohrgeräuschen.
-					</p>
-					<p>
-						Tinnitus kann die Lebensqualität erheblich beeinträchtigen. Wir bieten Ihnen eine umfassende Beratung und verschiedene Behandlungsmöglichkeiten, um Ihre Ohrgeräusche zu lindern oder zu bewältigen.
-					</p>
-				</article>
-			</section>
-			<div className="container text-orange bg-orange-light">
-				<h3 style={{ color: "var(--color-white)", fontWeight: "bold", lineHeight: "3" }}>
-					Moderne Therapieansätze für eine bessere Lebensqualität.
-				</h3>
-			</div>
-			<section className="container">
-				<div className="tinnitus-content">
-					<h2>Unsere Tinnitus-Behandlung</h2>
-					<p>
-						Bei Tinnitus handelt es sich um Ohrgeräusche, die nur der Betroffene hört. Diese können verschiedene Ursachen haben und unterschiedlich stark ausgeprägt sein. Wir bieten Ihnen:
-					</p>
-					<ul>
-						<li>Umfassende Diagnostik und Beratung</li>
-						<li>Hörgeräte mit Tinnitus-Noiser-Funktion</li>
-						<li>Entspannungstechniken und Stressmanagement</li>
-						<li>Kontinuierliche Betreuung und Anpassung</li>
-					</ul>
-				</div>
-			</section>
+
 		</main>
 	)
 }
