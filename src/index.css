@@ -40,6 +40,7 @@
 	--color-wave-light: #5dc5ed;
 	--color-wave-dark: #398ccb;
 	--color-footer-light: #2786c2;
+	--color-gray-light: #f5f5f5;
 
 	--shadow-1: 0 4px 20px #0000001a;
 }
@@ -67,7 +68,7 @@ h4 {
 }
 
 h1 {
-	font-size: clamp(2rem, 6vw, 2.6rem);
+	font-size: clamp(2rem, 4vw, 2.6rem);
 	font-weight: 400;
 }
 
@@ -106,13 +107,14 @@ img {
 	height: auto;
 }
 
-h1.site-title {
+h1.site-title,
+h1.site-title-alone {
 	display: inline-block;
 	font-size: clamp(1.8rem, 3vw, 4rem);
 	letter-spacing: 1rem;
 	color: var(--color-orange-light);
 	margin: 8rem 0 12rem 0rem;
-	padding: 0 2rem 0 0;
+	padding: 0 0 0 0;
 	font-weight: 500;
 	position: relative;
 }
@@ -122,7 +124,8 @@ h1.site-title::after {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 100%;
+	right: 0;
+	width: 90%;
 	height: 4px;
 	background: var(--color-blue-light);
 }
@@ -196,8 +199,8 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 24px;
-	height: 24px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	background-color: var(--color-black);
 	color: var(--color-white);
@@ -214,9 +217,18 @@ main {
 	transform: translateY(-2px);
 }
 
-.button-link:hover .arrow-icon-circle {
-	transform: translateX(2px);
+.button-link:hover > .arrow-icon-circle {
+	background-color: var(--color-orange-light);
+	color: var(--color-black);
+}
+
+.service-card .button-link:hover {
 	color: var(--color-white);
+}
+
+.service-card .button-link:hover > .arrow-icon {
+	transform: translateX(10px);
+	background-color: var(--color-orange-light) !important;
 }
 
 .legal-notice {

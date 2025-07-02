@@ -18,6 +18,16 @@ export default function Home() {
 	const adviceTitleRef = useRef(null);
 	const adviceButtonRef = useRef(null);
 
+	const scrollToLeistungen = () => {
+		const leistungenElement = document.getElementById('leistungen');
+		if (leistungenElement) {
+			leistungenElement.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		}
+	};
+
 	useEffect(() => {
 		// ScrollTrigger registrieren
 		gsap.registerPlugin(ScrollTrigger);
@@ -61,7 +71,7 @@ export default function Home() {
 			tl.fromTo(button,
 				{ opacity: 0, y: 30 },
 				{ opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-				"-=0.3" // Startet 0.3 Sekunden vor Ende der vorherigen Animation
+				"-=0.1" // Startet 0.3 Sekunden vor Ende der vorherigen Animation
 			);
 		}
 
@@ -223,14 +233,14 @@ export default function Home() {
 						<h2 ref={h2Ref}>
 							Ihr persönlicher Experte für Hörgeräte, Tinnitus-Behandlung und Gehörschutz.
 						</h2>
-						<Link to="/Leistungen" className="button-link" ref={buttonRef}>
-							Unseren Leistungen
+						<button onClick={scrollToLeistungen} className="button-link" ref={buttonRef}>
+							Unsere Leistungen
 							<span className="arrow-icon-circle">
 								<svg className="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
 								</svg>
 							</span>
-						</Link>
+						</button>
 					</div>
 				</section>
 
@@ -248,7 +258,7 @@ export default function Home() {
 					</div>
 				</section>
 				<section className="services container">
-					<h2 ref={leistungenTitleRef}>Unsere Leistungen</h2>
+					<h2 id="leistungen">Unsere Leistungen</h2>
 					<div className="services-grid" ref={serviceCardsRef}>
 						{services.map((service, index) => (
 							<div key={index} className="service-card">
@@ -279,7 +289,7 @@ export default function Home() {
 						</a>
 					</div>
 				</section>
-			</main >
+			</main>
 		</>
 	)
 }

@@ -1,0 +1,280 @@
+.bg-image-sortiment {
+	display: flex;
+	width: 100%;
+	position: relative;
+	overflow: visible;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+.bg-image-sortiment img {
+	width: 100%;
+}
+
+/*.bg-image-sortiment::before {
+	opacity: 0;
+}*/
+
+.bg-text-sortiment {
+	position: absolute;
+	top: 100%;
+	width: calc(100% - 4rem);
+	left: 40%;
+	transform: translate(-40%, -50%);
+	background: linear-gradient(to bottom, transparent, rgb(51, 72, 120) 30%);
+	backdrop-filter: none;
+	padding: 4rem 2rem;
+	border-radius: 0 0 1rem 1rem;
+}
+
+.bg-text-sortiment p {
+	margin-top: 2rem;
+	padding-inline: 0;
+	color: var(--color-white);
+}
+
+.box-top-abstand {
+	width: 100vw;
+	margin-top: 45vh;
+}
+
+.box-top-abstand-2 {
+	margin-top: 4rem;
+}
+
+.box-top-abstand-2 h3::before,
+.box-top-abstand-2 h3::after {
+	display: none;
+}
+
+.box-top-abstand-2 h3 span {
+	color: var(--color-orange-light);
+}
+
+.box-top-abstand h3 {
+	width: 100%;
+	text-align: center;
+	color: var(--color-blue-dark);
+	position: relative;
+	padding-block: 2rem;
+}
+
+.box-top-abstand h3::before,
+.box-top-abstand h3::after {
+	content: "";
+	position: absolute;
+	width: 15rem;
+	height: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.box-top-abstand h3::before {
+	left: -10px;
+	clip-path: polygon(100% 50%, 0 0, 0 100%);
+	background: linear-gradient(to right, transparent, var(--color-orange-light));
+}
+
+.box-top-abstand h3::after {
+	right: -10px;
+	clip-path: polygon(0 50%, 100% 0, 100% 100%);
+	background: linear-gradient(to left, transparent, var(--color-orange-light));
+}
+
+@media (max-width: 992px) {
+	.bg-image-sortiment {
+		background: url("../img/phonak-audeo-paradise.webp") no-repeat center
+			center / cover;
+		padding-bottom: 60rem;
+	}
+
+	.bg-text-sortiment {
+		width: calc(100% - 1rem);
+		padding: 2rem 1rem;
+	}
+}
+
+.container {
+	width: 100%;
+	margin-top: 4rem;
+}
+
+/* Bauformen Layout */
+.bauformen-container {
+	width: min(calc(100% - 1rem), 1400px);
+	display: flex;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.bauformen-item {
+	flex: 1 1 calc(50% - 1rem);
+	min-width: 0;
+	padding: 2rem;
+	border-radius: 1rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bauformen-item:last-child {
+	flex: 1 1 100%;
+}
+
+.bauformen-item h3 {
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+}
+
+.bauformen-item ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.bauformen-item li {
+	margin-bottom: 0.5rem;
+	padding-left: 1.5rem;
+	font-weight: 500;
+	position: relative;
+}
+
+.bauformen-item li::before {
+	content: "•";
+	position: absolute;
+	left: 0;
+	color: inherit;
+}
+
+/* Responsive Design */
+@media (max-width: 1023px) {
+	.bauformen-item {
+		flex: 1 1 100%;
+	}
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.scroll-list {
+		max-height: 500px;
+		padding: 10px;
+	}
+
+	.accordion-header {
+		padding: 1.25rem 1.5rem;
+		font-size: 1rem;
+	}
+
+	.accordion-content-inner {
+		padding: 1.25rem 1.5rem;
+	}
+
+	.accordion-content li {
+		padding-left: 1.25rem;
+	}
+}
+
+/* Moderne Funktionen Box */
+.funktionen-box {
+	width: min(calc(100% - 1rem), 1400px);
+	margin: 4rem auto 0;
+	border-radius: 1rem;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.funktionen-header {
+	background-color: var(--color-blue-light);
+	padding: 2rem;
+	text-align: center;
+}
+
+.funktionen-header h3 {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: 600;
+	color: var(--color-white);
+}
+
+.funktionen-content {
+	background-color: rgba(255, 255, 255, 0.95);
+	padding: 2rem;
+}
+
+.funktionen-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	list-style: none;
+	padding: 2rem;
+	margin: 0;
+}
+
+.funktionen-list li {
+	display: flex;
+	min-width: 360px;
+	align-items: center;
+	color: var(--color-black);
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.funktionen-list li:last-child {
+	margin-bottom: 0;
+}
+
+.checkbox-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	background-color: rgba(235, 114, 31);
+	border-radius: 4px;
+	margin-right: 1rem;
+	flex-shrink: 0;
+}
+
+.checkbox-icon::before {
+	content: "✓";
+	color: var(--color-white);
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.box-top-abstand-3 {
+	margin-block: 6rem;
+}
+
+.box-top-abstand-3 h3 {
+	margin-top: 0;
+}
+
+.box-top-abstand-3 h3::before,
+.box-top-abstand-3 h3::after {
+	display: none;
+}
+
+/* Responsive Design für Funktionen Box */
+@media (max-width: 768px) {
+	.box-top-abstand h3::before,
+	.box-top-abstand h3::after {
+		display: none;
+	}
+
+	.funktionen-header {
+		padding: 1.5rem;
+	}
+
+	.funktionen-header h3 {
+		font-size: 1.25rem;
+	}
+
+	.funktionen-content {
+		padding: 1.5rem;
+	}
+
+	.funktionen-list li {
+		margin-bottom: 0.75rem;
+	}
+}

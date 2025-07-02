@@ -1,0 +1,90 @@
+.cookie-banner {
+	position: fixed;
+	left: 50%;
+	bottom: 2rem;
+	transform: translateX(-50%);
+	background: var(--color-primary, #2a2a2a);
+	color: var(--color-white, #fff);
+	padding: 2rem 2.5rem;
+	border-radius: 1.2rem;
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+	z-index: 1000;
+	max-width: 90vw;
+	font-size: 1.1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.2rem;
+}
+
+.cookie-banner__actions {
+	display: flex;
+	gap: 1rem;
+}
+
+.cookie-btn {
+	padding: 0.6rem 1.5rem;
+	border: none;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background 0.2s;
+}
+
+.cookie-btn.accept {
+	background: var(--color-accent, #4caf50);
+	color: #fff;
+}
+
+.cookie-btn.decline {
+	background: #fff;
+	color: var(--color-primary, #2a2a2a);
+	border: 1px solid var(--color-primary, #2a2a2a);
+}
+
+.cookie-btn.accept:hover {
+	background: #388e3c;
+}
+
+.cookie-btn.decline:hover {
+	background: #f5f5f5;
+}
+
+.cookie-revoke {
+	position: fixed;
+	left: 50%;
+	bottom: 1.5rem;
+	transform: translateX(-50%);
+	background: transparent;
+	color: var(--color-primary, #2a2a2a);
+	border: 1px dashed var(--color-primary, #2a2a2a);
+	border-radius: 0.5rem;
+	padding: 0.4rem 1.2rem;
+	font-size: 0.95rem;
+	cursor: pointer;
+	z-index: 1000;
+	transition: background 0.2s;
+}
+
+.cookie-revoke:hover {
+	background: #f5f5f5;
+}
+
+.cookie-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 999;
+}
+
+.cookie-datenschutz-link {
+	font-size: 0.95em;
+	color: var(--color-orange-dark, #ff9800);
+	text-decoration: underline;
+	font-weight: 500;
+}
+
+.cookie-datenschutz-link:hover {
+	color: var(--color-orange-light, #ffb74d);
+}
