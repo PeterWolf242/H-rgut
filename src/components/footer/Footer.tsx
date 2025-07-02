@@ -2,17 +2,15 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import facebookLogo from "/img/facebook-logo.svg";
 import instagramLogo from "/img/instagramm-logo.svg";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { obfuscateEmail } from "../../utils/emailObfuscation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const COOKIE_KEY = "cookieConsent";
 const EMAIL_PARTS = obfuscateEmail("info@hoergut-buehlot.de");
 
 export default function Footer() {
 	const currentYear = new Date().getFullYear();
-	const [_, setForceUpdate] = useState(0);
 	const footerColsRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -49,12 +47,6 @@ export default function Footer() {
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 		};
 	}, []);
-
-	const handleRevoke = () => {
-		localStorage.removeItem(COOKIE_KEY);
-		setForceUpdate(x => x + 1); // erzwingt ein Re-Render, damit der Banner wieder erscheint
-		window.location.reload(); // optional: Seite neu laden, damit Banner sicher erscheint
-	};
 
 	return (
 		<>
@@ -98,9 +90,6 @@ export default function Footer() {
 					<div className="footer-links">
 						<Link to="/impressum"><p>Impressum</p></Link>
 						<Link to="/datenschutz"><p>Datenschutzerklärung</p></Link>
-						<button className="cookie-revoke-static" onClick={handleRevoke}>
-							Cookie-Einstellungen widerrufen
-						</button>
 					</div>
 				</div>
 			</footer>
