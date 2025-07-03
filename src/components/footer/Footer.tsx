@@ -2,7 +2,7 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import facebookLogo from "/img/facebook-logo.svg";
 import instagramLogo from "/img/instagramm-logo.svg";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { obfuscateEmail } from "../../utils/emailObfuscation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
