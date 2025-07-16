@@ -58,6 +58,30 @@
 	margin-top: 10rem;
 }
 
+.threads-background {
+	position: relative;
+	width: 100vw !important;
+	height: 400px;
+	overflow: hidden;
+}
+
+.threads-background h3 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: clamp(2rem, 6vw, 3.5rem);
+	font-weight: 400;
+	letter-spacing: 1rem;
+	text-align: center;
+}
+
+.threads-background h3 span {
+	font-size: 2rem;
+	color: var(--color-blue-dark);
+	mix-blend-mode: multiply;
+}
+
 /* Grundlegende Styles für alle tinnitus-text-section Elemente */
 .tinnitus-text-section .hero-image {
 	display: flex;

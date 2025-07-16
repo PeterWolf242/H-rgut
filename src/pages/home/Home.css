@@ -1,6 +1,12 @@
 .top-section {
 	position: relative;
 	overflow: hidden;
+	top: -230px;
+	min-height: calc(100vh + 265px);
+	background: url("/img/aussenansicht-hoergut-buehl.webp") center center / cover
+		no-repeat;
+	background-attachment: fixed !important;
+	background-size: cover;
 }
 
 .top-section img {
@@ -9,26 +15,41 @@
 	display: block;
 }
 
-.top-section::after {
+.top-section-overlay {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(transparent, var(--color-black) 90%);
+	background: linear-gradient(
+		transparent,
+		rgba(0, 0, 0, 0.3),
+		rgba(0, 0, 0, 0.7),
+		var(--color-black)
+	);
 	z-index: 1;
+	transition: opacity 0.05s ease-out;
 }
 
 .hero-content {
 	position: absolute;
-	top: 66%;
-	transform: translateY(-66%);
+	top: 60%;
+	transform: translateY(-60%);
 	left: 0;
 	right: 0;
 	bottom: 0;
 	z-index: 2;
+	transition: opacity 0.05s ease-out;
 }
 
 .hero-content h2 {
-	margin-top: 12rem;
+	margin-top: 6rem;
+}
+
+.hero-content h1,
+.hero-content h2,
+.hero-content .button-link {
+	transition:
+		opacity 0.05s ease-out,
+		transform 0.1s ease-out;
 }
 
 .top-section h1,
@@ -37,7 +58,7 @@
 }
 
 .top-section h2 {
-	margin-bottom: 4rem;
+	margin-bottom: 5rem;
 }
 
 .top-section h1 {
@@ -72,7 +93,7 @@
 }
 
 .top-section .hero-content .button-link {
-	margin-top: -12rem;
+	margin-top: -8rem;
 	transform: translateY(-2rem) !important;
 }
 
@@ -82,7 +103,11 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 2rem;
-	padding: 10rem 0;
+}
+
+#welcome-section {
+	margin-top: -4rem !important;
+	margin-bottom: 8rem;
 }
 
 .welcome-text {

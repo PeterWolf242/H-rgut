@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Threads from './Threads.tsx';
 
 // GSAP Plugins registrieren
 gsap.registerPlugin(ScrollTrigger);
@@ -103,8 +104,10 @@ export default function Tinnitus() {
 						<img src="../../img/Kreis-mit-sinuskurve-und-hoergeraet.png" alt="Tinnitus" />
 					</div>
 					<article className="tinnitus-text">
-						<p>
+						<h2>
 							Viele Menschen leiden unter einem dauerhaften Ohrgeräusch, auch Tinnitus genannt.
+						</h2>
+						<p>
 							Dieses kann sich als Pfeifen, Rauschen oder Brummen äußern und wirkt sich auf
 							Konzentration, Schlaf und Lebensqualität aus. Nicht immer lässt sich die Ursache
 							beseitigen – aber man kann lernen, mit dem Tinnitus zu leben. Moderne Hörgeräte mit
@@ -113,8 +116,30 @@ export default function Tinnitus() {
 						</p>
 					</article>
 				</section>
+			</div>
+
+			{/* Threads Hintergrund Sektion */}
+			<section className="threads-background">
+				<Threads
+					color={[0.01, 0.55, 1]}
+					amplitude={1.5}
+					distance={0.5}
+					enableMouseInteraction={false}
+				/>
+				<div className="container">
+					<h3>
+						Ein Pfeifen im Ohr? <br />
+						<span>
+							Wir hören genau hin.
+						</span>
+					</h3>
+				</div>
+			</section>
+
+			<div className="container">
 				<section ref={secondSectionRef} className="tinnitus-text-section">
-					<article className="tinnitus-text">
+					{/* Haupttext Tinnitus */}
+					<article className="tinnitus-text tinnitus-text-main-2">
 						<p>
 							<article className="tinnitus-text rounded-box">
 								<p>
@@ -130,7 +155,6 @@ export default function Tinnitus() {
 					</article>
 				</section>
 			</div>
-
 		</main>
 	)
 }

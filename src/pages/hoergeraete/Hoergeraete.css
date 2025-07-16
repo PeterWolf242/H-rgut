@@ -11,10 +11,6 @@
 	width: 100%;
 }
 
-/*.bg-image-sortiment::before {
-	opacity: 0;
-}*/
-
 .bg-text-sortiment {
 	position: absolute;
 	top: 100%;
@@ -212,7 +208,7 @@
 
 .funktionen-list li {
 	display: flex;
-	min-width: 360px;
+	min-width: 370px;
 	align-items: center;
 	color: var(--color-black);
 	font-weight: 500;
