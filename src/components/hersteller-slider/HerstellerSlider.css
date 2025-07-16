@@ -1,9 +1,11 @@
 .hersteller-slider-full-container {
 	width: 100vw;
-	margin: 0 auto 20rem auto;
+	margin: 0 auto;
 	overflow: hidden;
 	position: relative;
 	padding-block: 2rem 4rem;
+	background-color: var(--color-white);
+	z-index: 100;
 }
 
 .hersteller-slider-flex {

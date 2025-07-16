@@ -2,56 +2,17 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import facebookLogo from "/img/facebook-logo.svg";
 import instagramLogo from "/img/instagramm-logo.svg";
-import { useEffect, useRef } from "react";
 import { obfuscateEmail } from "../../utils/emailObfuscation";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const EMAIL_PARTS = obfuscateEmail("info@hoergut-buehlot.de");
 
 export default function Footer() {
 	const currentYear = new Date().getFullYear();
-	const footerColsRef = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		// ScrollTrigger registrieren
-		gsap.registerPlugin(ScrollTrigger);
-
-		const footerCols = footerColsRef.current;
-
-		if (footerCols) {
-			const cols = footerCols.querySelectorAll('.col') as NodeListOf<HTMLElement>;
-
-			// Jede Footer-Spalte einzeln animieren, sobald sie im Viewport ist
-			cols.forEach((col: HTMLElement) => {
-				gsap.fromTo(col,
-					{ opacity: 0, y: 50 },
-					{
-						opacity: 1,
-						y: 0,
-						duration: 1.2,
-						ease: "power2.out",
-						scrollTrigger: {
-							trigger: col,
-							start: "top 85%",
-							end: "bottom 15%",
-							toggleActions: "play none none reverse"
-						}
-					}
-				);
-			});
-		}
-
-		// Cleanup function
-		return () => {
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-		};
-	}, []);
 
 	return (
 		<>
 			<footer>
-				<div className="footer-content" ref={footerColsRef}>
+				<div className="footer-content">
 					<div className="col">
 						<h3>&#214;ffnungszeiten</h3>
 						<p>Mo - Fr: 09:00 - 18:00 Uhr</p>

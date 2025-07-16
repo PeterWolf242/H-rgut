@@ -17,6 +17,8 @@ export default function Home() {
 	const serviceCardsRef = useRef<HTMLDivElement>(null);
 	const adviceTitleRef = useRef(null);
 	const adviceButtonRef = useRef(null);
+	const heroContentRef = useRef<HTMLDivElement>(null);
+	const topSectionOverlayRef = useRef<HTMLDivElement>(null);
 
 	const scrollToLeistungen = () => {
 		const leistungenElement = document.getElementById('leistungen');
@@ -42,6 +44,74 @@ export default function Home() {
 		const serviceCards = serviceCardsRef.current;
 		const adviceTitle = adviceTitleRef.current;
 		const adviceButton = adviceButtonRef.current;
+		const heroContent = heroContentRef.current;
+		const topSectionOverlay = topSectionOverlayRef.current;
+
+		// Scroll-Effekt für hero-content und overlay Transparenz
+		const handleScroll = () => {
+			if (heroContent) {
+				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+				const heroContentTop = heroContent.offsetTop;
+				const heroContentHeight = heroContent.offsetHeight;
+				const viewportHeight = window.innerHeight;
+
+				const fadeStartPosition = 0; // Starte sofort beim Scrollen
+				const fadeEndPosition = heroContentHeight * 0.6; // 60% der Hero-Content-Höhe
+
+				let opacity = 1;
+				let fadeRange = fadeEndPosition;
+				let currentProgress = 0;
+
+				if (scrollTop > 0) {
+					fadeRange = fadeEndPosition;
+					currentProgress = Math.min(scrollTop, fadeEndPosition);
+					// Mache den Effekt sehr deutlich - von 1 zu 0 über den gesamten Bereich
+					opacity = Math.max(0, 1 - (currentProgress / fadeRange) * 0.6);
+					if (scrollTop > fadeEndPosition) {
+						opacity = 0;
+					}
+				}
+
+				// Wende Transparenz auf alle Kind-Elemente an
+				const children = heroContent.children;
+				for (let i = 0; i < children.length; i++) {
+					const child = children[i] as HTMLElement;
+					child.style.opacity = opacity.toString();
+					const parallaxOffset = scrollTop * 0.03;
+					child.style.transform = `translateY(${parallaxOffset}px)`;
+				}
+
+				// Scroll-Effekt für das Overlay (top-section-overlay)
+				if (topSectionOverlay) {
+					// Dynamische Anpassung des Farbverlaufs beim Scrollen
+					const percent = Math.max(0, 1 - (currentProgress / fadeRange));
+
+					// Wenn der Hero-Content fast aus dem Viewport ist, Overlay komplett transparent machen
+					if (scrollTop > fadeEndPosition * 0.8) {
+						topSectionOverlay.style.opacity = '0';
+					} else {
+						topSectionOverlay.style.opacity = '1';
+
+						// Beim Scrollen nach unten: Transparenz nimmt zu, aber mit weichem Übergang
+						// Beim Zurückscrollen: Transparenz nimmt ab (zurück zu 30%)
+						const pos1 = 30 + (80 - 30) * (1 - percent); // transparent wandert von 30% auf 80%
+						const pos2 = 50 + (85 - 50) * (1 - percent); // 0.3 wandert von 50% auf 85%
+						const pos3 = 70 + (90 - 70) * (1 - percent); // 0.7 wandert von 70% auf 90%
+						const pos4 = 90 + (95 - 90) * (1 - percent); // schwarz wandert von 90% auf 95%
+
+						topSectionOverlay.style.background = `linear-gradient(
+							transparent ${pos1}%,
+							rgba(0,0,0,0.3) ${pos2}%,
+							rgba(0,0,0,0.7) ${pos3}%,
+							var(--color-black) ${pos4}%
+						)`;
+					}
+				}
+			}
+		};
+
+		// Event-Listener hinzufügen
+		window.addEventListener('scroll', handleScroll);
 
 		if (h1One && h1Two && h2 && button) {
 			// Timeline erstellen für sequenzielle Animationen
@@ -71,7 +141,7 @@ export default function Home() {
 			tl.fromTo(button,
 				{ opacity: 0, y: 30 },
 				{ opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-				"-=0.1" // Startet 0.3 Sekunden vor Ende der vorherigen Animation
+				"-=0.4" // Startet 0.4 Sekunden vor Ende der vorherigen Animation
 			);
 		}
 
@@ -198,6 +268,7 @@ export default function Home() {
 		// Cleanup function
 		return () => {
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+			window.removeEventListener('scroll', handleScroll);
 		};
 	}, [])
 
@@ -215,17 +286,8 @@ export default function Home() {
 
 			<main>
 				<section className="top-section">
-					<img
-						src="/img/aussenansicht-hoergut-buehl.webp"
-						alt="Phonak Audeo Paradise"
-						width="2000"
-						height="1321"
-						loading="eager"
-						{...{ fetchpriority: "high" }}
-						className="hero-image"
-					/>
-
-					<div className="container hero-content">
+					<div className="top-section-overlay" ref={topSectionOverlayRef}></div>
+					<div className="container hero-content" ref={heroContentRef}>
 						<h1>
 							<span className="highlight1" ref={h1OneRef}>Besser <span>Hören</span></span> <br />
 							<span className="highlight2" ref={h1TwoRef}>Besser <span>Leben</span></span> <br />
@@ -244,7 +306,7 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className="welcome container">
+				<section className="welcome container" id="welcome-section">
 					<div className="welcome-text" ref={welcomeTextRef}>
 						<h2>Herzlich <br /> Willkommen</h2>
 						<article>
