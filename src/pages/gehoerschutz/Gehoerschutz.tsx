@@ -1,5 +1,48 @@
+import "../../Leistungen.css";
 import "./Gehoerschutz.css";
+import { gehoerschutz } from "../../interfaces/gehoerschutz";
 import { Helmet } from "react-helmet-async";
+import { useRef, useEffect, useState } from "react";
+
+const blockColors = ["#eb721f", "#038cb2", "#e6f3fb", "#398ccb"];
+
+// LazyVideo Komponente mit mehreren Quellen
+const LazyVideo = ({ sources }: { sources: { src: string; type: string }[] }) => {
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsVisible(true);
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.1 }
+		);
+
+		if (videoRef.current) {
+			observer.observe(videoRef.current);
+		}
+
+		return () => observer.disconnect();
+	}, []);
+
+	return (
+		<video
+			ref={videoRef}
+			autoPlay={isVisible}
+			loop
+			muted
+			playsInline
+		>
+			{isVisible && sources.map((source, index) => (
+				<source key={index} src={source.src} type={source.type} />
+			))}
+		</video>
+	);
+};
 
 export default function Gehoerschutz() {
 	return (
@@ -8,60 +51,60 @@ export default function Gehoerschutz() {
 				<link rel="canonical" href="https://hoergut-buehlot.de/Gehoerschutz" />
 			</Helmet>
 			<div className="container">
-				<h1 className="h1-bold site-title">Gehörschutz</h1>
+				<section className="hero-section gehoerschutz-hero-section">
+					<article className="hero-text">
+						<h1 className="site-title-alone">
+							Geh&ouml;rschutz
+						</h1>
+						<h2>
+							Individuelle L&ouml;sungen f&uuml;r Arbeit und Freizeit
+						</h2>
+					</article>
+					<div className="hero-image">
+						<img src="../../img/sowei-unlimited-weiss.webp" alt="Gehörschutz Duo" />
+					</div>
+				</section>
 			</div>
-			<section className="bg-container bg-image-gehoerschutz">
-				<img
-					src="../img/gehoerschutz-logo.webp"
-					alt="Gehörschutz HörGut Bühl"
-					title="Gehörschutz HörGut Bühl"
-					aria-label="Gehörschutz HörGut Bühl"
-					loading="lazy"
-					width="2000"
-					height="1250"
-				/>
-				<article className="bg-text bg-text-gehoerschutz">
-					<h2 className="h2-bold" style={{ color: "var(--color-orange-light)" }}>
-						Schützen Sie Ihr Gehör - für heute und morgen.
-					</h2>
-					<p className="h3" style={{ color: "var(--color-orange-light)" }}>
-						Professioneller Gehörschutz für jeden Bedarf.
-					</p>
+
+			<section className="gehoerschutz-grid container">
+				{gehoerschutz.map((item, idx) => {
+					const baseColor = blockColors[idx % blockColors.length];
+					const style = { background: baseColor };
+					return (
+						<div key={idx} className="gehoerschutz-box" style={style}>
+							<div className="gehoerschutz-content">
+								<div className="gehoerschutz-image">
+									<img src={item.url} alt={item.description} />
+								</div>
+								<div className="gehoerschutz-text">
+									<p>{item.text}</p>
+								</div>
+							</div>
+						</div>
+					);
+				})}
+			</section>
+
+			<div className="container">
+				<section className="image-video-section">
+					<div className="image-video-image">
+						<LazyVideo
+							sources={[
+								{ src: "../../videos/marketing-video-gehoerschutz-gehoerluchs.mp4", type: "video/mp4" },
+								{ src: "../../videos/marketing-video-gehoerschutz-gehoerluchs.webm", type: "video/webm" }
+							]}
+						/>
+					</div>
+				</section>
+			</div>
+
+			<section className="container">
+				<article className="more-info-section">
+					<h2>Gut zu wissen:</h2>
 					<p>
-						Lautstärke kann Ihr Gehör dauerhaft schädigen. Wir bieten Ihnen maßgeschneiderten Gehörschutz für verschiedene Anwendungsbereiche - vom Arbeitsplatz bis zur Freizeit.
+						In vielen Fällen kann dieser individuelle Gehörschutz über die Berufsgenossenschaft (BG) abgerechnet werden, sodass dem Mitarbeiter selbst keine oder nur geringe Kosten entstehen.
 					</p>
 				</article>
-			</section>
-			<div className="container text-orange bg-orange-light">
-				<h3 style={{ color: "var(--color-white)", fontWeight: "bold", lineHeight: "3" }}>
-					Maßgeschneiderte Lösungen für optimalen Schutz.
-				</h3>
-			</div>
-			<section className="container">
-				<div className="gehoerschutz-content">
-					<h2>Unsere Gehörschutz-Lösungen</h2>
-					<p>
-						Gehörschutz ist nicht gleich Gehörschutz. Je nach Einsatzbereich und individuellen Anforderungen bieten wir verschiedene Lösungen an:
-					</p>
-					<div className="gehoerschutz-grid">
-						<div className="gehoerschutz-item">
-							<h3>Beruflicher Gehörschutz</h3>
-							<p>Maßgeschneiderte Ohrstöpsel für den Arbeitsplatz, die Sicherheit und Komfort bieten.</p>
-						</div>
-						<div className="gehoerschutz-item">
-							<h3>Freizeit-Gehörschutz</h3>
-							<p>Spezielle Lösungen für Konzerte, Sportveranstaltungen und andere laute Aktivitäten.</p>
-						</div>
-						<div className="gehoerschutz-item">
-							<h3>Schlaf-Gehörschutz</h3>
-							<p>Sanfte und bequeme Ohrstöpsel für einen erholsamen Schlaf ohne Störgeräusche.</p>
-						</div>
-						<div className="gehoerschutz-item">
-							<h3>Wasserschutz</h3>
-							<p>Spezielle Ohrstöpsel für Schwimmen, Wassersport und andere Wasseraktivitäten.</p>
-						</div>
-					</div>
-				</div>
 			</section>
 		</main>
 	)

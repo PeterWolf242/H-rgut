@@ -1,87 +1,239 @@
-.bg-image-gehoerschutz {
-	display: flex;
-	width: 100%;
+/* --- HERO SECTION --- */
+.gehoerschutz-hero-section {
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		var(--color-blue-light)
+	) !important;
+}
+
+/* --- GEHÖRSCHUTZ GRID --- */
+.gehoerschutz-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	margin: 12rem auto 4rem auto !important;
+}
+
+.gehoerschutz-box {
+	padding: 3rem 2rem;
+	border-radius: 1rem;
+	background: var(--color-white) !important;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	height: 900px;
+	overflow: hidden;
 	position: relative;
-	overflow: visible;
-	margin: 0 auto;
-	justify-content: center;
-}
-
-.bg-image-gehoerschutz img {
-	width: 100%;
-}
-
-.bg-image-gehoerschutz::before {
-	opacity: 0;
-}
-
-.bg-text-gehoerschutz {
-	position: absolute;
-	top: 100%;
-	width: calc(100% - 4rem);
-	left: 40%;
-	transform: translate(-40%, -50%);
-	background: linear-gradient(to bottom, transparent, rgb(51, 72, 120) 30%);
-	backdrop-filter: none;
-	padding: 4rem 2rem;
-	border-radius: 0 0 1rem 1rem;
-}
-
-.bg-text-gehoerschutz p {
-	margin-top: 2rem;
-	padding-inline: 0;
-	color: var(--color-white);
 }
 
 .gehoerschutz-content {
-	margin: 4rem 0;
+	height: 100%;
+	position: relative;
 }
 
-.gehoerschutz-content h2 {
-	color: var(--color-blue);
-	margin-bottom: 2rem;
+.gehoerschutz-image {
+	position: relative;
+	width: 30rem;
+	height: 45%;
+	overflow: hidden;
+	border-radius: 60% 40% 30% 70% / 50% 50% 50% 50%;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+	border: 2px solid rgba(255, 255, 255);
 }
 
-.gehoerschutz-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 2rem;
-	margin-top: 3rem;
+.gehoerschutz-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
-.gehoerschutz-item {
-	background: var(--color-white);
-	padding: 2rem;
-	border-radius: 1rem;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	border-left: 4px solid var(--color-orange);
-}
-
-.gehoerschutz-item h3 {
-	color: var(--color-blue);
-	margin-bottom: 1rem;
-	font-size: 1.2rem;
-}
-
-.gehoerschutz-item p {
-	color: var(--color-blue);
+.gehoerschutz-text {
+	position: absolute;
+	top: calc(50% + 2rem);
+	left: 1rem;
+	right: 1rem;
+	height: 370px;
 	line-height: 1.6;
+	word-wrap: break-word;
+	text-align: right;
+	padding: 1.5rem;
+	border-radius: 0.75rem;
+	display: flex;
 }
 
-@media (max-width: 992px) {
-	.bg-image-gehoerschutz {
-		background: url("../img/gehoerschutz-logo.webp") no-repeat center center /
-			cover;
-		padding-bottom: 60rem;
-	}
+.gehoerschutz-text p {
+	margin: auto;
+	padding: 0;
+	width: 100%;
+	position: relative;
+}
 
-	.bg-text-gehoerschutz {
-		width: calc(100% - 1rem);
-		padding: 2rem 1rem;
-	}
+.gehoerschutz-text p::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: -2rem;
+	width: 0.5rem;
+	height: 80%;
+	opacity: 0.2;
+}
 
+.gehoerschutz-box:nth-child(1) .gehoerschutz-text p::after {
+	background: var(--color-orange-light);
+}
+
+.gehoerschutz-box:nth-child(2) .gehoerschutz-text p::after {
+	background: var(--color-blue-light);
+}
+
+.gehoerschutz-box:nth-child(3) .gehoerschutz-text p::after {
+	background: var(--color-blue-dark);
+}
+
+.gehoerschutz-box:nth-child(4) .gehoerschutz-text p::after {
+	background: var(--color-orange-dark);
+}
+
+/* Highlights für den Text basierend auf der Box-Farbe */
+.gehoerschutz-box:nth-child(1) .gehoerschutz-text::before,
+.gehoerschutz-box:nth-child(2) .gehoerschutz-text::before,
+.gehoerschutz-box:nth-child(3) .gehoerschutz-text::before,
+.gehoerschutz-box:nth-child(4) .gehoerschutz-text::before {
+	content: "";
+	position: absolute;
+	/*top: 20%;
+	left: 20%;*/
+	width: 30%;
+	height: 30%;
+	border-radius: 49% 51% 53% 47% / 30% 56% 44% 70%;
+	backdrop-filter: blur(40px);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	-webkit-backdrop-filter: blur(40px);
+	opacity: 0.2;
+	transform: rotate(-5deg);
+	transition: all 0.3s ease;
+}
+
+.gehoerschutz-box:nth-child(1) .gehoerschutz-text::before {
+	bottom: 6rem;
+	left: 40%;
+	background: linear-gradient(
+		135deg,
+		var(--color-orange-light),
+		rgba(235, 114, 31, 1)
+	);
+}
+
+.gehoerschutz-box:nth-child(2) .gehoerschutz-text::before {
+	bottom: 40%;
+	right: 30%;
+	background: linear-gradient(
+		135deg,
+		var(--color-blue-light),
+		rgba(3, 140, 178, 0.6)
+	);
+}
+
+.gehoerschutz-box:nth-child(3) .gehoerschutz-text::before {
+	bottom: 50%;
+	right: 40%;
+	background: linear-gradient(
+		135deg,
+		var(--color-blue-dark),
+		rgba(57, 140, 203, 0.6)
+	);
+}
+
+.gehoerschutz-box:nth-child(4) .gehoerschutz-text::before {
+	bottom: 20%;
+	right: 20%;
+	background: linear-gradient(
+		135deg,
+		var(--color-orange-dark),
+		rgba(235, 114, 31, 0.6)
+	);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
 	.gehoerschutz-grid {
 		grid-template-columns: 1fr;
 		gap: 1.5rem;
 	}
+
+	.gehoerschutz-box {
+		height: 600px;
+	}
+
+	.gehoerschutz-image {
+		width: 25rem;
+		height: 45%;
+	}
+}
+
+@media (max-width: 600px) {
+	.gehoerschutz-box {
+		height: 500px;
+		padding: 1.5rem;
+	}
+
+	.gehoerschutz-image {
+		width: 20rem;
+		height: 40%;
+	}
+}
+
+.more-info-section {
+	margin: 4rem auto 16rem auto;
+	padding: 2rem 0 2rem 2rem;
+	border-radius: 1rem;
+	position: relative;
+	z-index: 2;
+}
+
+.more-info-section::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 2%;
+	width: calc(100% - 60%);
+	height: 0.5rem;
+	background-color: var(--color-orange-light);
+	z-index: -1;
+	opacity: 0.8;
+}
+
+.more-info-section::after {
+	content: "";
+	position: absolute;
+	left: 2%;
+	top: calc(100% - 2rem);
+	width: 20rem;
+	height: 100%;
+	background: url("/img/dguv-logo.png") no-repeat center center;
+	background-size: contain;
+	opacity: 0.8;
+}
+
+.more-info-section h2 {
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-bottom: 2rem;
+}
+
+.more-info-section p {
+	width: 90%;
+	text-wrap: wrap;
+}
+
+.image-video-section {
+	margin: 12rem auto 4rem auto;
+	overflow: hidden;
+}
+
+.image-video-section video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

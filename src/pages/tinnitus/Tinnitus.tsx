@@ -1,4 +1,4 @@
-import "./Tinnitus.css";
+import "../../Leistungen.css";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
@@ -96,7 +96,7 @@ export default function Tinnitus() {
 						</h2>
 					</article>
 					<div className="hero-image">
-						<img src="../../img/tinnitus-logo_gross.png" alt="Tinnitus" />
+						<img src="../../img/tinnitus-logo_gross.webp" alt="Tinnitus-Logo" />
 					</div>
 				</section>
 				<section ref={firstSectionRef} className="tinnitus-text-section">
