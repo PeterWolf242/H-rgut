@@ -46,12 +46,6 @@ export default function Impressum() {
 					<p>Markus Reifschneider<br /><br />
 						H&uuml;fflischer Hof 13 <br />
 						77815 B&uuml;hl</p>
-
-					<h2>EU-Streitschlichtung</h2>
-					<p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br /> Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-
-					<h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-					<p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 				</div>
 			</main>
 		</>
