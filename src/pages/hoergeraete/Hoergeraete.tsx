@@ -12,38 +12,21 @@ export default function Hoergeraete() {
 				<link rel="canonical" href="https://hoergut-buehlot.de/Hoergeraete" />
 			</Helmet>
 			<div className="container">
-				<h1 className="h1-bold site-title">Hörgeräte</h1>
+				<section className="hero-section hoergeraete-hero-section">
+					<article className="hero-text">
+						<h1 className="site-title-alone">
+							H&ouml;rger&auml;te
+						</h1>
+						<h2>
+							Ihre Individuelle L&ouml;sung f&uuml;r mehr Lebensqualit&auml;t
+						</h2>
+					</article>
+					<div className="hero-image">
+						<img src="../../img/hoergeraete-logo_gross.webp" alt="Hörgeräte-Logo" title="Hörgeräte-Logo" aria-label="Hörgeräte-Logo" />
+					</div>
+				</section>
 			</div>
-			<section className="bg-container bg-image-sortiment">
-				<img
-					src="../img/phonak-audeo-paradise.webp"
-					alt="Ponak-Adeo-Pradise"
-					title="Ponak-Adeo-Pradise"
-					aria-label="Ponak-Adeo-Pradise"
-					loading="lazy"
-					width="2000"
-					height="1250"
-				/>
-				{/*<article className="bg-text bg-text-sortiment">
-					<h2 className="h2-bold" style={{ color: "var(--color-orange-light)" }}>
-						Die Entscheidung für ein Hörsystem ist ein sehr großer Schritt.
-					</h2>
-					<p className="h3" style={{ color: "var(--color-orange-light)" }}>
-						Für sich selbst die richtige Lösung zu finden fällt oft schwer.
-					</p>
-					<p>
-						Gerne möchten wir Sie auf dem Weg zu Ihrem eigenen Hörsystem begleiten und mit Ihnen gemeinsam eine Lösung finden, die sowohl Ihrem persönlichen Bedarf sowie Ihren individuellen preislichen Vorstellungen entspricht.
-					</p>
-				</article>*/}
-				<article className="bg-text bg-text-sortiment">
-					<h2 className="h2-bold" style={{ color: "var(--color-orange-light)" }}>
-						Hörgeräte – Ihre individuelle Lösung für mehr Lebensqualität
-					</h2>
-					<p>
-						Ein Hörgerät ist mehr als Technik – es ist der Schlüssel zu Ihrer Welt. Die Entscheidung für ein Hörsystem ist ein großer Schritt. Umso wichtiger ist es, dass es zu Ihnen passt: zu Ihrem Hörverlust, Ihrem Alltag und Ihrem Budget. Deshalb nehmen wir uns Zeit, Sie kennenzulernen – bevor wir Ihnen eines unserer ausgewählten Systeme zur Ausprobe anpassen.
-					</p>
-				</article>
-			</section>
+
 			<div className="box-top-abstand">
 				<h3 className="h3-bold">Unsere Bauformen im Überblick</h3>
 			</div>

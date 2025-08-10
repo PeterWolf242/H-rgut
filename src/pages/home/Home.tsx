@@ -51,11 +51,7 @@ export default function Home() {
 		const handleScroll = () => {
 			if (heroContent) {
 				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-				const heroContentTop = heroContent.offsetTop;
 				const heroContentHeight = heroContent.offsetHeight;
-				const viewportHeight = window.innerHeight;
-
-				const fadeStartPosition = 0; // Starte sofort beim Scrollen
 				const fadeEndPosition = heroContentHeight * 0.6; // 60% der Hero-Content-Höhe
 
 				let opacity = 1;
@@ -206,14 +202,32 @@ export default function Home() {
 		if (serviceCards) {
 			const cards = serviceCards.querySelectorAll('.service-card') as NodeListOf<HTMLElement>;
 
-			// Jede Karte einzeln animieren, sobald sie im Viewport ist
-			cards.forEach((card: HTMLElement) => {
+			// Jede Karte einzeln animieren mit unterschiedlichen Richtungen
+			cards.forEach((card: HTMLElement, index: number) => {
+				let initialPosition = {};
+
+				// Verschiedene Animationen je nach Index
+				switch (index) {
+					case 0: // Hörgeräte - von links
+						initialPosition = { opacity: 0, x: -100 };
+						break;
+					case 1: // Tinnitus - von unten
+						initialPosition = { opacity: 0, y: 60 };
+						break;
+					case 2: // Gehörschutz - von rechts
+						initialPosition = { opacity: 0, x: 100 };
+						break;
+					default:
+						initialPosition = { opacity: 0, y: 60 };
+				}
+
 				gsap.fromTo(card,
-					{ opacity: 0, y: 60 },
+					initialPosition,
 					{
 						opacity: 1,
+						x: 0,
 						y: 0,
-						duration: 1,
+						duration: 1.2,
 						ease: "power2.out",
 						scrollTrigger: {
 							trigger: card,
@@ -253,7 +267,7 @@ export default function Home() {
 				{
 					opacity: 1,
 					y: 0,
-					duration: 1.2,
+					duration: 0.9,
 					ease: "power2.out",
 					scrollTrigger: {
 						trigger: adviceButton,

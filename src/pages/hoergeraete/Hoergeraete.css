@@ -1,3 +1,11 @@
+.hoergeraete-hero-section {
+	background: linear-gradient(
+		to bottom,
+		transparent,
+		var(--color-wave-light) 30%
+	) !important;
+}
+
 .bg-image-sortiment {
 	display: flex;
 	width: 100%;
@@ -17,7 +25,7 @@
 	width: calc(100% - 4rem);
 	left: 40%;
 	transform: translate(-40%, -50%);
-	background: linear-gradient(to bottom, transparent, rgb(51, 72, 120) 30%);
+	background: linear-gradient(to bottom, transparent, rgb(231, 65, 36) 30%);
 	backdrop-filter: none;
 	padding: 4rem 2rem;
 	border-radius: 0 0 1rem 1rem;
@@ -31,7 +39,7 @@
 
 .box-top-abstand {
 	width: 100vw;
-	margin-top: 45vh;
+	margin-top: 25vh;
 }
 
 .box-top-abstand-2 {
